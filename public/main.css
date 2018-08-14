@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel|Stalinist+One|Tangerine");
+html .jumbotron {
+  background: url(/images/arnld.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh; }
+html body {
+  font: 100% Cinzel;
+  font-weight: normal; }
+html h1, html h2, html h3, html h4, html h5, html h6 {
+  font-family: Cinzel;
+  font-weight: normal; }
+html .button {
+  font-family: Cinzel;
+  font-weight: bold; }
+html .search-container {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px; }
+html #submit {
+  display: inline-block;
+  padding: 10px;
+  height: 45px; }
+html #dropdown {
+  height: 45px; }
+html input#search-bar {
+  margin: 0 auto;
+  width: 60%;
+  height: 45px;
+  padding: 0 10px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none; }
+html input#search-bar:focus {
+  border: 1px solid #008ABF;
+  transition: 0.35s ease;
+  color: #008ABF; }
+html input#search-bar:focus::-webkit-input-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0; }
+html input#search-bar:focus::-moz-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0; }
+html input#search-bar:focus:-ms-placeholder {
+  transition: opacity 0.45s ease;
+  opacity: 0; }
+html .search-icon {
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px; }
+
+/*# sourceMappingURL=main.css.map */

@@ -11,19 +11,19 @@ set :database, {adapter: "postgresql", database: "ski_blog"}
 # Display homepage
 get '/' do
   if session[:user_id]
-    erb :sign_in
+    erb :layout
   else
-    erb :sign_in
+    erb :signup
   end
 end
 
 # displays sign in form
-  get '/sign-in' do
-    erb :sign_in
+  get '/signin' do
+    erb :signin
   end
 
   # responds to sign in form
-post "/sign-in" do
+post "/signin" do
   @user = User.find_by(username: params[:username])
   if @user && @user.password == params[:password]
       # this line signs a user in
@@ -40,21 +40,25 @@ post "/sign-in" do
 
       # if user does not exist or password does not match then
       #   redirect the user to the sign in page
-      redirect "/sign-in"
+      redirect "/signin"
     end
   end
 
   # displays signup form
 #   with fields for relevant user information like:
 #   username, password
-get "/sign-up" do
-  erb :sign_up
+get "/signup" do
+  erb :signup
 end
 
 
 
-post "/sign-up" do
+post "/signup" do
   @user = User.create(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    birthday: params[:birthday],
     username: params[:username],
     password: params[:password]
   )
