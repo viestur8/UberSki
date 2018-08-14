@@ -17,6 +17,11 @@ get '/' do
   end
 end
 
+#display blog posts
+  get '/blogposts' do
+    erb :blogposts
+  end
+
 # displays sign in form
   get '/signin' do
     erb :signin
@@ -40,7 +45,7 @@ post "/signin" do
 
       # if user does not exist or password does not match then
       #   redirect the user to the sign in page
-      redirect "/signin"
+      redirect "/blogposts"
     end
   end
 
@@ -54,7 +59,7 @@ end
 
 
 post "/signup" do
-  @user = User.create(
+  user = User.create(
     first_name: params[:first_name],
     last_name: params[:last_name],
     email: params[:email],
@@ -62,14 +67,15 @@ post "/signup" do
     username: params[:username],
     password: params[:password]
   )
+
   # this line does the signing in
-  session[:user_id] = @user.id
+  session[:user_id] = user.id
 
   # lets the user know they have signed up
   flash[:info] = "Thank you for signing up"
 
   # assuming this page exists
-  redirect "/"
+  redirect "/blogposts"
 end
 
 # when hitting this get path via a link

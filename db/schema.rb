@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_152318) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.datetime "timestap"
+    t.datetime "timestamp"
     t.integer "user_id"
   end
 
@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 2018_08_14_152318) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
-    t.string "gender"
+    t.string "username"
+    t.string "password"
     t.date "birthday"
   end
 
