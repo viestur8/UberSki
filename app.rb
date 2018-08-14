@@ -11,7 +11,7 @@ set :database, {adapter: "postgresql", database: "ski_blog"}
 # Display homepage
 get '/' do
   if session[:user_id]
-    erb :layout
+    redirect '/blogposts'
   else
     erb :signup
   end
@@ -19,6 +19,7 @@ end
 
 #display blog posts
   get '/blogposts' do
+    @users = User.all
     erb :blogposts
   end
 
@@ -75,7 +76,7 @@ post "/signup" do
   flash[:info] = "Thank you for signing up"
 
   # assuming this page exists
-  redirect "/blogposts"
+  redirect "/users"
 end
 
 # when hitting this get path via a link
