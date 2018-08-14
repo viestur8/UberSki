@@ -6,12 +6,12 @@ require './models/blogpost'
 
 enable :sessions
 
-set :database, {adapter: "postgresql", database: "olympic_skaters"}
+set :database, {adapter: "postgresql", database: "ski_blog"}
 
 # Display homepage
 get '/' do
   if session[:user_id]
-    erb :signed_in_homepage
+    erb :sign_in
   else
     erb :sign_in
   end
