@@ -5,7 +5,13 @@ User.create(first_name: 'Arnold',
    password: 'guest'
    birthday:07/30/1947
  )
-
+ User.create(first_name: 'Ray',
+    last_name: 'Gillette',
+    email: 'ray@isis.org',
+    username: 'arnoldK',
+    password: 'guest'
+    birthday:07/30/1947
+  )
 
 Blogpost.create(title: 'Young Snow', post: 'txt here', timestamp: 'today', user_id:1 )
 

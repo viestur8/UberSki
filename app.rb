@@ -6,7 +6,7 @@ require './models/blogpost'
 
 enable :sessions
 
-set :database, {adapter: "postgresql", database: "ski_blog"}
+
 
 # Display homepage
 get '/' do
