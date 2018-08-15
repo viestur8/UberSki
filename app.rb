@@ -18,39 +18,39 @@ get '/' do
 end
 
 #display blog posts
-  get '/blogposts' do
-    @users = User.all
-    erb :blogposts
-  end
+get '/blogposts' do
+  @users = User.all
+  erb :blogposts
+end
 
 # displays sign in form
-  get '/signin' do
-    erb :signin
-  end
+get '/signin' do
+  erb :signin
+end
 
-  # responds to sign in form
+# responds to sign in form
 post "/signin" do
   @user = User.find_by(username: params[:username])
   if @user && @user.password == params[:password]
-      # this line signs a user in
-      session[:user_id] = @user.id
+    # this line signs a user in
+    session[:user_id] = @user.id
 
-      # lets the user know that something is wrong
-      flash[:info] = "You have been signed in"
+    # lets the user know that something is wrong
+    flash[:info] = "You have been signed in"
 
-      # redirects to the home page
-      redirect "/"
-    else
-      # lets the user know that something is wrong
-      flash[:warning] = "Your username or password is incorrect"
+    # redirects to the home page
+    redirect "/"
+  else
+    # lets the user know that something is wrong
+    flash[:warning] = "Your username or password is incorrect"
 
-      # if user does not exist or password does not match then
-      #   redirect the user to the sign in page
-      redirect "/blogposts"
-    end
+    # if user does not exist or password does not match then
+    #   redirect the user to the sign in page
+    redirect "/blogposts"
   end
+end
 
-  # displays signup form
+# displays signup form
 #   with fields for relevant user information like:
 #   username, password
 get "/signup" do
@@ -82,11 +82,21 @@ end
 # when hitting this get path via a link
 #   it would reset the session user_id and redirect
 #   back to the homepage
-  get "/sign-out" do
+get "/sign-out" do
   # this is the line that signs a user out
   session[:user_id] = nil
-
   # lets the user know they have signed out
-    flash[:info] = "You have been signed out"
-    redirect "/"
-    end
+  flash[:info] = "You have been signed out"
+  redirect "/"
+end
+
+#create a post
+get "/createform" do
+  erb :createform
+end
+
+post "/createpost" do
+    @user = session[:user_id]
+    Post.create(title: params[:title], post: params[:post], timestamp: DateTime.now , user_id: @user)
+    redirect "/blogposts"
+end
