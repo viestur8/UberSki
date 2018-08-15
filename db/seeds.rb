@@ -14,4 +14,4 @@ User.create(first_name: 'Arnold',
     birthday: '07/30/1947'
   )
 
-Blogpost.create(title: 'Young Snow', post: 'txt here', timestamp: 'today', user_id:1 )
+Post.create(title: 'Young Snow', post: 'txt here', timestamp: 'today', user_id:1 )
