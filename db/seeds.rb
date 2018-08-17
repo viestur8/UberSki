@@ -1,5 +1,5 @@
 User.create(first_name: 'Arnold',
-   last_name: 'Schwarzenneger',
+   last_name: 'K',
    email: 'arny@california.gov',
    username: 'arnoldK',
    password: 'guest',

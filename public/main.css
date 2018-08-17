@@ -20,6 +20,19 @@ html .search-container {
   display: block;
   margin: 0 auto;
   margin-top: 5px; }
+html .row {
+  margin: 2px 0; }
+html .card-text {
+  display: block;
+  display: -webkit-box;
+  max-width: 400px;
+  height: 50px;
+  margin: 0 auto;
+  line-height: 1.2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 html #submit {
   display: inline-block;
   padding: 10px;

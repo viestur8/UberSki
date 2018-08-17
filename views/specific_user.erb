@@ -1,0 +1,7 @@
+<div class="col-6"
+<h1> Users Name: <%= @specific_user.username %> </h1>
+<% @users_posts.each do |single_post| %>
+<br>
+    <h5> Post Tittle: <%= single_post.title %> </h5>
+<% end %>
+</div>

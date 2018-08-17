@@ -1,13 +1,14 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="/images/student_skier.jpg" alt="Card image cap">
+
+
+<% @post.each do |single_post| %>
+<div class="card col" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Counting Eskimo words for snow: A citizen's guide
-</h5>
-    <p class="card-text">Lexemes referring to snow and snow-related notions in
-Steven A. Jacobson's (1984) Yup'ik Eskimo dictionary[1]
-Anthony C. Woodbury
-University of Texas at Austin
-July 1991 /p>
-    <a href="https://www.princeton.edu/~browning/snow.html" class="btn btn-primary">Read Full Article</a>
+  <img class="card-img-top col" src="https://www.sciencesource.com/Doc/SCS/Media/TR1_WATERMARKED/0/7/d/4/SS2562935.jpg?d63642764426" alt="Card image cap">
+  <h5 class="card-title"> <%= single_post.title %> </h5>
+    <p class="card-text"> <%= single_post.post %> </p>
+    <h6> <%= single_post.user_id %> </h6>
+    <a href="/blogposts/<%= single_post.id %>" class="btn btn-primary">Read Article</a>
+    <a href="/blogposts/<%= single_post.id %>/edit" class="btn btn-secondary">Edit</a>
+    </div>
   </div>
-</div>
+<% end %>

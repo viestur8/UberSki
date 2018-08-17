@@ -16,18 +16,31 @@
           <!-- <img src="images/arnld.jpg" width="20%" height="20%" class="d-inline-block align-top" alt=""> Uber Ski Blog</a> -->
 
           <ul class="nav justify-content-end">
+            <% if session[:user_id] %>
+              <!-- only show this code when signed in -->
+              <!-- clicking on this link will hit the get "/sign-out" route -->
+              <li class="nav-item">
+                <a class="nav-link active" href="/signout">Sign Out
+                </a>
+              </li>
+            <% else %>
+              <!-- only show this code when signed out -->
+              <li class="nav-item">
+                <a class="nav-link active" href="/signin">Sign in
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup">Sign Up</a>
+              </li>
+            <% end %>
             <li class="nav-item">
-              <a class="nav-link active" href="/signin">Sign in
-              </a>
+              <a class="nav-link" href="/about">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="signup">Sign &#220;p</a>
+              <a class="nav-link" href="/blogposts">Read</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about">About &#220;s</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">News</a>
+              <a class="nav-link" href="/write">Write</a>
             </li>
           </ul>
         </nav>
@@ -37,8 +50,10 @@
           <p>where you can learn everything about skiing!</p>
         </div>
         <section>
-          <div class="row">
-            <div class=" col welcome">
+          <div class="container">
+
+            <div class="row">
+
               <%= yield %>
 
             </div>
