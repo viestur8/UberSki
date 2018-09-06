@@ -1,6 +1,6 @@
 # UberSki
 
-<img src=Screen%20Shot%202018-09-06%20at%202.04.45%20PM.png
+<img src=Screen%20Shot%202018-09-06%20at%202.04.45%20PM.png>
 Goal:
 
 To create a fullstack simple blog website that enables someone to sign up for an account and create relevant posts on a topic of their choosing.
