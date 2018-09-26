@@ -19,6 +19,9 @@
             <% if session[:user_id] %>
               <!-- only show this code when signed in -->
               <!-- clicking on this link will hit the get "/sign-out" route -->
+            <li class="nav-item">
+              <a class="nav-link" href="/profile"> Your Profile</a>
+            </li>
               <li class="nav-item">
                 <a class="nav-link active" href="/signout">Sign Out
                 </a>

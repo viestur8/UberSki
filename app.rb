@@ -109,13 +109,18 @@ post "/post" do
     redirect "/blogposts"
 end
 
+  get '/profile' do
+    @specific_user = User.find(params[:id])
+    erb :profile
+  end
+
 get '/blogposts/:id/edit' do  #load edit form
-  if session[:user_id]
+  if @specific_user = User.find(params[:id])
     @post = Post.find_by_id(params[:id])
     erb :edit
   else
-    flash[:info] = "Please Sign Up to post to the blog"
-    erb :signup
+    flash[:info] = "User may edit only one's posts"
+    erb :blogposts
   end
 end
 
@@ -166,4 +171,14 @@ delete '/blogposts/:id' do #delete action
       flash[:info] = "Please Sign Up to post to the blog"
       erb :signup
   end
+  delete '/users/:id' do #delete action
+    if session[:user_id]
+      @user = User.find_by_id(params[:id])
+      @user.delete
+        redirect to '/blogposts'
+    else
+        flash[:info] = "Please Sign Up to post to the blog"
+        erb :signup
+    end
+end
 end
